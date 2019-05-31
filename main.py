@@ -6,9 +6,9 @@ from urllib.request import Request, urlretrieve
 # open http://image-net.org/explore?wnid=n00523513
 # select other class
 # copy wnid= from url
-#  run
+# run
 
-# or open https://gist.github.com/aaronpolhamus/964a4411c0906315deb9f4a3723aac57 ( map_clsloc.txt)
+# or open map_clsloc.txt
 
 
 strings = open("map_clsloc.txt", "r")
@@ -24,8 +24,8 @@ def store_raw_images(nwid=wnid_dict['rubber_eraser'], limit=200, out_folder="ima
     response = urllib.request.urlopen(request)
     urls = response.read().decode('utf-8')
 
-    if not os.path.exists('out_folder'):
-        os.makedirs('out_folder')
+    if not os.path.exists(out_folder):
+        os.makedirs(out_folder)
 
     pic_num = 1
     for i in urls.split('\n'):
@@ -35,8 +35,7 @@ def store_raw_images(nwid=wnid_dict['rubber_eraser'], limit=200, out_folder="ima
             meta = site.info()
 
             if "ImageWidth" in meta:
-                if int (meta["ImageWidth"])> 300:
-
+                if int(meta["ImageWidth"]) > 300:
                     # download
                     urlretrieve(i, "out_folder/" + str(random.randint(10000, 10000000)) + ".jpg")
                     pic_num += 1
@@ -48,4 +47,6 @@ def store_raw_images(nwid=wnid_dict['rubber_eraser'], limit=200, out_folder="ima
             break
 
 
-store_raw_images(nwid=wnid_dict['CD_player'])
+store_raw_images(nwid=wnid_dict['CD_player'], limit=50)
+store_raw_images(nwid=wnid_dict['Egyptian_cat'], limit=50)
+store_raw_images(nwid=wnid_dict['lifeboat'], limit=50)
