@@ -1,4 +1,4 @@
-## Python3 easy image-net_downloader
+## Python3 easy image-net.com downloader
 
 ### Run
 - choose picture class in  map_clsloc.txt
