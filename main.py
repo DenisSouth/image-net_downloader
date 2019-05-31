@@ -29,6 +29,7 @@ def store_raw_images(nwid=wnid_dict['rubber_eraser'], limit=200, out_folder="ima
 
     pic_num = 1
     for i in urls.split('\n'):
+
         try:
             # avoid damaged images
             site = urllib.request.urlopen(i)
@@ -37,11 +38,15 @@ def store_raw_images(nwid=wnid_dict['rubber_eraser'], limit=200, out_folder="ima
             if "ImageWidth" in meta:
                 if int(meta["ImageWidth"]) > 300:
                     # download
-                    urlretrieve(i, "out_folder/" + str(random.randint(10000, 10000000)) + ".jpg")
+                    urlretrieve(i, out_folder + "/" + str(random.randint(10000, 10000000)) + ".jpg")
                     pic_num += 1
+                    print("done", i)
+            else:
+                print("ImageWidth fail", i)
+
 
         except Exception as e:
-            print(str(e))
+            print(e, i)
 
         if pic_num > limit:
             break
