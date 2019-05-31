@@ -1,9 +1,10 @@
 ## Python3 easy image-net.org/ downloader
 
 ### Run
-- install requirements.txt
-- choose picture class in  map_clsloc.txt
-- call function - store_raw_images(nwid, limit, out_folder)
+1) install requirements.txt
+2) choose picture class in  map_clsloc.txt
+3) call function - store_raw_images(nwid, limit, out_folder)
+
 
 - nwid is picture id, you can get it from dictionary wnid_dict['rubber_eraser']
 - limit is maximum count of pictures which will download
