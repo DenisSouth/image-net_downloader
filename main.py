@@ -4,7 +4,7 @@ from multiprocessing.pool import ThreadPool
 from urllib.request import Request
 
 nwid_data_file_path = "map_clsloc.txt"
-folder_for_downloads = "E:/projects/dataset_maker/dld/"
+folder_for_downloads = "C:/downloads/"
 limit_of_pictures = 30
 threads_number = 20
 timeout = 2
